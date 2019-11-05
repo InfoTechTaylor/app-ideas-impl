@@ -4,7 +4,7 @@
   "description": "converts binary to decimal",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/taylor-lapointe/app-ideas-impl/issues"
   },
-  "homepage": "https://github.com/taylor-lapointe/app-ideas-impl#readme"
+  "homepage": "https://github.com/taylor-lapointe/app-ideas-impl#readme",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
 }
