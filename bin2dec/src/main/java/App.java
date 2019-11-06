@@ -4,22 +4,20 @@ public class App {
 
     public static Scanner scan = new Scanner(System.in);
 
-    public static String getInput(String prompt) {
-        System.out.println(prompt);
-        String message = scan.nextLine();
-        return message;
-    }
+    private static final String ONE = "1";
+    private static final String ZERO = "0";
 
-    public static String validateInput(String input){
-        while (!input.equals("1") && !input.equals("0")){
-            input = getInput("Enter binary digits. Must be zero or one: ");
-        }
+    public static String getInput(String prompt){
+        String input;
+        do {
+            System.out.println(prompt);
+            input = scan.nextLine();
+        } while (!input.equals(ONE) && !input.equals(ZERO));
         return input;
     }
 
     public static void main(String[] args) {
         String input = getInput("Enter binary digits: ");
-        input = validateInput(input);
         System.out.println(input);
     }
 }
