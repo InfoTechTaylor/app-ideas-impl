@@ -5,8 +5,6 @@ public class App {
 
     public static Scanner scan = new Scanner(System.in);
 
-    private static final String ONE = "1";
-    private static final String ZERO = "0";
 
     public static String getInput(String prompt){
         String input;
@@ -20,14 +18,16 @@ public class App {
     public static int convertBinaryToDecimal(String binaryInput) {
         int decimalResult = 0;
         int length = binaryInput.length();
+        int count = 0;
         for(int i = length - 1; i >= 0; i--){
-            char digitChar = binaryInput.charAt(i);
+            char digitChar = binaryInput.charAt(count);
 
             int digit = Character.getNumericValue(digitChar);
 
             if (digit == 1){
                 decimalResult += Math.pow(2,i);
             }
+            count++;
         }
 
         return decimalResult;
