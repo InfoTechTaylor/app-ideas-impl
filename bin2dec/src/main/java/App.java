@@ -33,9 +33,32 @@ public class App {
         return decimalResult;
     }
 
+    public static boolean isValidInput(String input) {
+        int length = input.length();
+        for(int i = length - 1; i >= 0; i--){
+            char digitChar = input.charAt(i);
+
+            int digit = Character.getNumericValue(digitChar);
+
+            if (!isZeroOrOne(digit)){
+                return false;
+            }
+        }
+        return true;
+    };
+
+    public static boolean isZeroOrOne(int digit) {
+        if (digit != 1 && digit != 0){
+            return false;
+        }
+        return true;
+    };
+
     public static void main(String[] args) {
         String input = getInput("Enter binary digits: ");
-        System.out.println(input);
+        while (!isValidInput(input)){
+            input = getInput("Input must consist of only 0's and 1's. Enter binary digits: ");
+        };
         int result = convertBinaryToDecimal(input);
         System.out.println("Your binary number of " + input + " is " + result);
     }
