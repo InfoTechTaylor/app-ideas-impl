@@ -35,7 +35,7 @@ public class App {
 
     public static boolean isValidInput(String input) {
         int length = input.length();
-        for(int i = length - 1; i >= 0; i--){
+        for(int i = 0; i <= length -1; i++){
             char digitChar = input.charAt(i);
 
             int digit = Character.getNumericValue(digitChar);
@@ -54,11 +54,15 @@ public class App {
         return true;
     };
 
-    public static void main(String[] args) {
-        String input = getInput("Enter binary digits: ");
+    public static void validateInput(String input) {
         while (!isValidInput(input)){
             input = getInput("Input must consist of only 0's and 1's. Enter binary digits: ");
         };
+    };
+
+    public static void main(String[] args) {
+        String input = getInput("Enter binary digits: ");
+        validateInput(input);
         int result = convertBinaryToDecimal(input);
         System.out.println("Your binary number of " + input + " is " + result);
     }
