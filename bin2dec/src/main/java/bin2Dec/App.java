@@ -1,3 +1,5 @@
+package bin2Dec;
+
 import java.util.Scanner;
 import java.lang.Math;
 
