@@ -1,5 +1,8 @@
 .vscode
 *.class
+.gradle
+.settings
+build
 
 node_modules
 **/node_modules
