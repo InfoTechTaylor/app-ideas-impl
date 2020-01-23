@@ -17,4 +17,6 @@ public class AppController {
     }
     
     // TODO add a mapping for errors
+    // TODO add validation route that calls validation class, returns message if invalid
+    // TODO add tests
 }
