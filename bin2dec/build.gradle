@@ -1,41 +1,25 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.2.2.RELEASE")
-    }
+plugins {
+	id 'org.springframework.boot' version '2.2.2.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id 'java'
 }
 
-apply plugin: 'java'
-apply plugin: 'application'
-apply plugin: 'groovy'
-apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
-
-mainClassName = 'bin2dec.App'
-
-bootJar {
-    archiveBaseName = 'bin2dec-spring-boot'
-    archiveVersion =  '0.1.0'
-}
-
-jar {
-    archiveBaseName = 'bin2dec-gradle'
-    archiveVersion =  '0.1.0'
-}
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
 
 repositories {
-    mavenCentral()
+	mavenCentral()
 }
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation('org.codehaus.groovy:groovy-all:2.4.13')
-    testImplementation("junit:junit")
-    testImplementation 'org.spockframework:spock-core:1.1-groovy-2.4'
-    testImplementation 'org.spockframework:spock-spring:1.1-groovy-2.4'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+    testCompile 'com.jayway.jsonpath:json-path'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+
+test {
+	useJUnitPlatform()
 }
