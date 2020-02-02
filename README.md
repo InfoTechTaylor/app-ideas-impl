@@ -10,7 +10,7 @@ In a terminal, from root of project:
 ``` sh
 .
 app-ideas-impl> cd bin2dec
-bin2dec> ./gradlew bootRun
+bin2dec> ./gradlew run
 ```
 URL to hit: http://localhost:8080/getDecimal?binary=1010
 

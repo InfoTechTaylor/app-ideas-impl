@@ -1,16 +1,28 @@
 package bin2Dec;
 
 public class BinaryToDecimal {
-    private final long id;
+    private long id;
     private String decimal;
+
+    public BinaryToDecimal(){
+        // this.id = atomicId.incrementAndGet();
+    }
 
     public BinaryToDecimal(long id, String binary){
         this.id = id;
         this.decimal = convertBinaryToDecimal(binary);
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public long getId() {
 		return id;
+    }
+
+    public void setDecimal(String binaryInput) {
+        this.decimal = convertBinaryToDecimal(binaryInput);
     }
 
     public String getDecimal() {

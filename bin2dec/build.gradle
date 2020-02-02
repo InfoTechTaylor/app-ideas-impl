@@ -44,7 +44,7 @@ apply plugin: 'application'
 apply plugin: 'groovy'
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'org.springframework.boot'
-mainClassName = 'bin2dec.AppController'
+mainClassName = 'bin2Dec.Application'
 sourceCompatibility = 1.8
 repositories {
     mavenCentral()

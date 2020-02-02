@@ -12,10 +12,15 @@ public class BinaryToDecimalTest extends Specification {
     }
 
     def "convert binary to decimal"() {
-        when:
-            def result = binaryToDecimal.convertBinaryToDecimal("1110")
-        then: 
-            result == "14"
 
+        expect:
+        binaryToDecimal.convertBinaryToDecimal(binary) == decimal
+        
+        where:
+        binary     | decimal
+        "10"       | "2"
+        "0101"     | "5"
+        "1110"     | "14"
+        "10111111" | "191"
     }
 }
