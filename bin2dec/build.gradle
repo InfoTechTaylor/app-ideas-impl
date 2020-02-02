@@ -1,25 +1,68 @@
-plugins {
-	id 'org.springframework.boot' version '2.2.2.RELEASE'
-	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
-	id 'java'
+// plugins {
+// 	id 'org.springframework.boot' version '2.2.2.RELEASE'
+// 	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+// 	id 'java'
+// }
+
+// group = 'com.example'
+// version = '0.0.1-SNAPSHOT'
+// sourceCompatibility = '1.8'
+
+// repositories {
+// 	mavenCentral()
+// }
+
+// dependencies {
+// 	implementation 'org.springframework.boot:spring-boot-starter-web'
+//     testCompile 'com.jayway.jsonpath:json-path'
+//     testCompile(
+//             'junit:junit:4.12',
+//             'org.codehaus.groovy:groovy-all:2.4.4',
+//             'org.spockframework:spock-core:1.0-groovy-2.4'
+//     )
+// 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+// 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+// 	}
+// }
+
+// test {
+// 	useJUnitPlatform()
+// }
+
+
+//
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.5.RELEASE")
+    }
 }
-
-group = 'com.example'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
-
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'groovy'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'org.springframework.boot'
+mainClassName = 'bin2Dec.Application'
+sourceCompatibility = 1.8
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
-
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-    testCompile 'com.jayway.jsonpath:json-path'
-	testImplementation('org.springframework.boot:spring-boot-starter-test') {
-		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-	}
+    compile 'org.codehaus.groovy:groovy-all:2.4.13'
+    compile"org.springframework.boot:spring-boot-starter-web"
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.spockframework:spock-core:1.1-groovy-2.4'
+    testCompile 'org.spockframework:spock-spring:1.1-groovy-2.4'
+    testCompile "org.springframework.boot:spring-boot-starter-test"
 }
-
 test {
-	useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+bootJar {
+    baseName = 'gs-spring-boot'
+    version =  '0.1.0'
 }
